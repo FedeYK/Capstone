@@ -22,6 +22,7 @@ The H&M Dashboard is a powerful Streamlit-based web application that provides an
         * [Articles](#articles)
         * [Transactions](#trans)
     * [Authentication](#auth)
+* [Cloud Deployment](#cloud)
 
 ## <a name='key'></a>**Key Features**
 
@@ -192,3 +193,9 @@ Base URL: **`/api/v1`**
 ## <a name='auth'></a>**Authentication**
 
 To access the API endpoints, you need to provide an API key in the request header as **`X-API-KEY`**. The API key is defined in the **`api.py`** file.
+
+## <a name='cloud'></a>**Cloud Deployment**
+
+If you're contemplating deploying your app in the cloud, Google App Engine provides a seamless and sophisticated solution. Begin by creating two neatly organized folders named 'API' and 'Frontend,' then transfer the corresponding files into each folder. Rest assured, all essential files—including app.yaml, config.yaml, and requirements.txt—can be effortlessly located within these folders.
+
+Next, venture into the Google Cloud Console and execute the command 'gcloud app deploy.' Sit back and marvel at the captivating process as your app is gracefully deployed and comes to life, ready to fulfill its purpose with elegance and efficiency.
