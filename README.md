@@ -53,34 +53,26 @@ Before you begin, ensure you have met the following requirements:
 1. Clone this repository:
 
 ```
-bashCopy code
 git clone https://github.com/your-username/hm-dashboard.git
-
 ```
 
 1. Change into the project directory:
 
 ```
-bashCopy code
 cd hm-dashboard
-
 ```
 
 1. Create a virtual environment and activate it:
 
 ```
-bashCopy code
 python -m venv venv
 source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
-
 ```
 
 1. Install the required libraries:
 
 ```
-Copy code
 pip install -r requirements.txt
-
 ```
 
 1. Configure the **`config.yaml`** file with the appropriate authentication credentials, API keys, and other required configurations.
@@ -90,9 +82,7 @@ pip install -r requirements.txt
 To launch the Streamlit app, execute the following command in your terminal:
 
 ```
-arduinoCopy code
 streamlit run app.py
-
 ```
 
 Streamlit will then provide a local URL (e.g., **`http://localhost:8501`**) that you can use to access the dashboard in your web browser.
@@ -114,21 +104,17 @@ This is a RESTful API built using Flask and Flask-Restx to serve retail data for
 2. Install the required dependencies.
 
 ```
-bashCopy code
 pip install -r requirements.txt
-
 ```
 
 1. Set your database credentials and API key in the **`api.py`** file.
 
 ```
-pythonCopy code
 user = "your_user"
 passw = "your_password"
 host = "your_host"
 database = "your_database"
 api_key = "your_api_key"
-
 ```
 
 1. Run the application.
@@ -136,7 +122,6 @@ api_key = "your_api_key"
 ```
 bashCopy code
 python app.py
-
 ```
 
 ## <a name='aend'></a>**API Endpoints**
