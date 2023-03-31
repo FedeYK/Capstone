@@ -109,7 +109,7 @@ This is a RESTful API built using Flask and Flask-Restx to serve retail data for
 pip install -r requirements.txt
 ```
 
-1. Set your database credentials and API key in the **`api.py`** file.
+3. Set your database credentials and API key in the **`api.py`** file.
 
 ```
 user = "your_user"
@@ -119,7 +119,7 @@ database = "your_database"
 api_key = "your_api_key"
 ```
 
-1. Run the application.
+4. Run the application.
 
 ```
 bashCopy code
