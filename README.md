@@ -53,29 +53,29 @@ Before you begin, ensure you have met the following requirements:
 1. Clone this repository:
 
 ```
-git clone https://github.com/your-username/hm-dashboard.git
+git clone https://github.com/FedeYK/Capstone.git
 ```
 
-1. Change into the project directory:
+2. Change into the project directory:
 
 ```
 cd hm-dashboard
 ```
 
-1. Create a virtual environment and activate it:
+3. Create a virtual environment and activate it:
 
 ```
 python -m venv venv
 source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
 ```
 
-1. Install the required libraries:
+4. Install the required libraries:
 
 ```
 pip install -r requirements.txt
 ```
 
-1. Configure the **`config.yaml`** file with the appropriate authentication credentials, API keys, and other required configurations.
+5. Configure the **`config.yaml`** file with the appropriate authentication credentials, API keys, and other required configurations.
 
 ## <a name='us'></a>**Usage**
 
