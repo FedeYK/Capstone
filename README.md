@@ -1,5 +1,3 @@
-# <a name='PetHelp!'></a>
-
 # **H&M Dashboard**
 
 The H&M Dashboard is a powerful Streamlit-based web application that provides an interactive, user-friendly interface for analyzing H&M's business data. The dashboard is designed to offer valuable insights into customer demographics, transaction details, and product information, allowing users to filter data by various attributes for a deeper understanding of sales trends and patterns.
