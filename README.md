@@ -9,6 +9,7 @@ The H&M Dashboard is a powerful Streamlit-based web application that provides an
 * [Prerequisites](#pre)
 * [Installation](#inst)
 * [Usage](#us)
+* [What you get](#wyg)
 * [Retail Data Api](#api)
     * [Features](#feat)
     * [Setup](#setup)
@@ -86,6 +87,30 @@ streamlit run app.py
 ```
 
 Streamlit will then provide a local URL (e.g., **`http://localhost:8501`**) that you can use to access the dashboard in your web browser.
+
+## <a name='wyg'></a>**What you get**
+
+Introducing our feature-rich app that allows you to effortlessly sift through various filters such as age range, sales channels, product types, "Club Member" status, and the frequency of fashion news received by customers.
+
+<img src="https://github.com/FedeYK/Capstone/blob/main/readme/3.png" title="Dashboard Filters" width=300px>
+
+Upon applying your desired filters, you'll be presented with insightful KPIs, including the total number of customers matching your criteria, their average age, and a visually appealing bar chart illustrating the distribution of customers by age.
+
+<img src="https://github.com/FedeYK/Capstone/blob/main/readme/4.png" title="Dashboard KPI's 1" width=300px>
+
+Further KPIs include the total number of transactions completed, the number of online and in-store transactions, the overall revenue generated, and a breakdown of sales by channel. Additionally, you'll be greeted with a captivating bar chart displaying sales by date.
+
+<img src="https://github.com/FedeYK/Capstone/blob/main/readme/5.png" title="Dashboard KPI's 2" width=300px>
+
+A comprehensive table showcases the total sales by product type based on your chosen filters, followed by an engaging bar chart highlighting sales by color.
+
+<img src="https://github.com/FedeYK/Capstone/blob/main/readme/6.png" title="Dashboard Ammount sold" width=300px>
+
+Finally, our app offers two delightful pie charts that reveal the percentage of Club Members and the distribution of customers receiving fashion news according to frequency. Complementary tables provide the number of customers in each category for a thorough understanding.
+
+<img src="https://github.com/FedeYK/Capstone/blob/main/readme/7.png" title="Dashboard Engagement" width=300px>
+
+Experience the seamless way to analyze your data with our aesthetically pleasing and user-friendly app.
 
 # <a name='api'></a>**Retail Data API**
 
