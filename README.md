@@ -48,6 +48,12 @@ Before you begin, ensure you have met the following requirements:
 - PyMySQL
 - flask
 - flask-restx
+- numpy
+- pyyaml
+- altair version 4.1.0
+- streamlit-authenticator
+- matplotlib
+- plotly
 
 ## <a name='inst'></a>**Installation**
 
