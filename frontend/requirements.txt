@@ -6,8 +6,7 @@ PyMySQL
 flask
 flask-restx
 pyyaml
-altair
-PIL
+altair==4.1.0
 streamlit-authenticator
 matplotlib
 plotly
