@@ -12,7 +12,6 @@ from yaml.loader import SafeLoader
 import matplotlib.pyplot as plt
 
 
-
 # I want to check how much space does the data take
 import sys
 
@@ -54,7 +53,8 @@ def load_data(path):
 
 
 # The IP where the Rest Api is running
-ip = "http://127.0.0.1:5000"
+ip = "https://api-dot-capstone-376415.oa.r.appspot.com"
+# ip = "http://127.0.0.1:5000"
 
 
 
@@ -163,8 +163,26 @@ if authentication_status:
     # Filter the DataFrame to include only the products in club_flt_list
     if "All Statuses" not in club_flt_list:
         joined_prod_trans = joined_prod_trans[joined_prod_trans["club_member_status"].isin(club_flt_list)]
+        dochart = False
+    else:
+        dochart = True
 
-    # st.dataframe(joined_prod_trans)
+    # Recieve advertising ?
+    adv_status = customer_df["fashion_news_frequency"].unique()
+    adv_status = np.insert(adv_status, 0, "All Frequencies")
+    st.sidebar.write("# Select fashion news frequency")
+    adv_flt_list = st.sidebar.multiselect(
+        label="Fashion news frequency",
+        options=adv_status,
+        default="All Frequencies")
+    
+    # Filter the DataFrame to include only the products in adv_flt_list
+    if "All Frequencies" not in adv_flt_list:
+        joined_prod_trans = joined_prod_trans[joined_prod_trans["fashion_news_frequency"].isin(adv_flt_list)]
+        dochart1 = False
+    else:
+        dochart1 = True
+
 
     #############################################################################################################################
     # Title
@@ -286,10 +304,42 @@ if authentication_status:
     # Display the chart using Streamlit
     st.pyplot(fig)
     
-    # Create a new DataFrame with the most sold product from each product type
+    # Pie chart of the distribution of Club Member Status
+    if dochart:
+        # Create a pie chart using Altair
+        st.write("## Club Member Status")
+        club_member_counts = joined_prod_trans['club_member_status'].value_counts()
+        chart_data = pd.DataFrame({
+            'count': club_member_counts.values,
+            'status': club_member_counts.index
+        })
+        chart = alt.Chart(chart_data).mark_arc().encode(
+            theta='count',
+            color='status'
+        )
+        st.altair_chart(chart, use_container_width=True)
+    
+        st.write("### Club Member Status in numbers")
+        st.dataframe(chart_data)
 
-    # for item in sales_flt_list:
-    #     st.write(f"Total sold of {item}: {ammount[item]:.2f} €")
+    if dochart1:
+        # Pie chart of the Newsletter Subscription Status
+        st.write("## Newsletter Subscription Status")
+        subscriptions = joined_prod_trans['fashion_news_frequency'].value_counts()
+        chart_data = pd.DataFrame({
+            'count': subscriptions.values,
+            'status': subscriptions.index
+        })
+        chart = alt.Chart(chart_data).mark_arc().encode(
+            theta='count',
+            color='status'
+        )
+        st.altair_chart(chart, use_container_width=True)
+    
+        st.write("### Newsletter Subscription Status in numbers")
+        st.dataframe(chart_data)
+
+        
 
 elif authentication_status == False:
     st.error('Username/password is incorrect')
