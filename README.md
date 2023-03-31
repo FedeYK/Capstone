@@ -2,6 +2,8 @@
 
 The H&M Dashboard is a powerful Streamlit-based web application that provides an interactive, user-friendly interface for analyzing H&M's business data. The dashboard is designed to offer valuable insights into customer demographics, transaction details, and product information, allowing users to filter data by various attributes for a deeper understanding of sales trends and patterns.
 
+<img src="https://github.com/FedeYK/Capstone/blob/main/readme/1.png" title="Dashboard Example">
+
 ## **Table of Contents**
 * [Key Features](#key)
 * [Prerequisites](#pre)
@@ -89,6 +91,8 @@ Streamlit will then provide a local URL (e.g., **`http://localhost:8501`**) that
 
 This is a RESTful API built using Flask and Flask-Restx to serve retail data for a Streamlit application. The API provides access to data related to customers, articles, and transactions. It uses Google Cloud Platform's App Engine for hosting and Cloud SQL for the database.
 
+<img src="https://github.com/FedeYK/Capstone/blob/main/readme/2.png" title="API Example">
+
 ## <a name='feat'></a>**Features**
 
 - Retrieve customer data (all or by ID, age range)
@@ -133,16 +137,22 @@ Base URL: **`/api/v1`**
 - Get distinct ages of customers: **`/api/v1/ages`**
 - Get customers between specific ages: **`/api/v1/ages/<age1>/<age2>`**
 
+<img src="https://github.com/FedeYK/Capstone/blob/main/readme/cust.png" title="Customers Example">
+
 ### <a name='articles'></a>**Articles**
 
 - Get all articles: **`/api/v1/articles`**
 - Get distinct articles: **`/api/v1/articles/distinct`**
 - Get specific article by ID: **`/api/v1/articles/<id>`**
 
+<img src="https://github.com/FedeYK/Capstone/blob/main/readme/art.png" title="Articles Example">
+
 ### <a name='trans'></a>**Transactions**
 
 - Get all transactions: **`/api/v1/transactions`**
 - Get specific transaction by ID: **`/api/v1/transactions/<id>`**
+
+<img src="https://github.com/FedeYK/Capstone/blob/main/readme/trans.png" title="Transactions Example">
 
 ## <a name='auth'></a>**Authentication**
 
