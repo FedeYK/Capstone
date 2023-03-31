@@ -1,0 +1,10 @@
+credentials:
+  usernames:
+    hymuser:
+      email: user@hym.com
+      name: user
+      password: $2b$12$iQpL8IdzsrADXl3jWQOxh.3jtRddGh9xSBODbi98J4Wi7AYk7oSc. # To be replaced with hashed password
+cookie:
+  expiry_days: 30
+  key: "capstone2023"
+  name: h&m_session
