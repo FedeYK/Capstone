@@ -1,145 +1,162 @@
-# <a name='PetHelp!'></a>PetHelp!
+# <a name='PetHelp!'></a>
 
-### General Description:
+# **H&M Dashboard**
 
-This project is a Flask web application was developed to help vet's keep their medical history from their patients. In this web app, vet's will be able to create new pets with all the information they need and then submit information about that pet every time they need it. PetHelp App allows users to manage information about their pets, including a history of events or incidents. Users can create, update, and delete pets, and add, view or delete histories for each pet.
+The H&M Dashboard is a powerful Streamlit-based web application that provides an interactive, user-friendly interface for analyzing H&M's business data. The dashboard is designed to offer valuable insights into customer demographics, transaction details, and product information, allowing users to filter data by various attributes for a deeper understanding of sales trends and patterns.
 
-## <a name='Table of Contents'></a>Table of Contents
+## **Table of Contents**
+* [Key Features](#key)
+* [Prerequisites](#pre)
+* [Installation](#inst)
+* [Usage](#us)
+* [Retail Data Api](#api)
+    * [Features](#feat)
+    * [Setup](#setup)
+    * [Api Endpoints](#aend)
+        * [Customers](#cust)
+        * [Articles](#articles)
+        * [Transactions](#trans)
+    * [Authentication](#auth)
 
+## <a name='key'></a>**Key Features**
 
-* [Instructions & general description](#instructions)
-* [HTML Descriptions](#html)
-* [How to setup & run](#howtorun)
-* [How to use](#howtouse)
-* [Routes & API Endpoints](#routes)
-* [Database Description](#dbdesc)
+- **Secure Authentication System**: The dashboard implements an authentication mechanism to ensure only authorized users can access the data and insights.
+- **Interactive Filters**: Users can easily filter the data by age range, sales channel (online or in-store), product type, and club member status to view custom insights tailored to their needs.
+- **Comprehensive Key Performance Indicators (KPIs)**: The dashboard displays the following KPIs:
+    - Number of unique customers
+    - Average age of customers
+    - Total transactions (count)
+    - Number of online transactions
+    - Number of in-store transactions
+    - Total amount sold (in euros), including separate values for online and in-store sales
+- **Data Visualizations**: The dashboard offers various visualizations to better understand the data, including:
+    - Bar chart of the total number of customers by age
+    - Bar chart of total sales per day
+    - Table of total sales by product type, sorted by the highest-selling products
+    - Bar chart of total sales by color, illustrating which colors are most popular among customers
+- All this KPI’s are connected through the filters and each time a filter is changed all the KPI’s change
 
+## <a name='pre'></a>**Prerequisites**
 
-### <a name='instructions'></a> PetHelp Instrucitons and general description
+Before you begin, ensure you have met the following requirements:
 
-This is the heart of the app. Here, all the functions are developed in order to create a new user, a new pet, add a new history for the pet and delete information.
+- Python 3.7 or later
+- Streamlit 1.3.0 or later
+- Additional required libraries (refer to the **`requirements.txt`** file for a complete list)
 
-The functions developed are:
-index -> returns index.html
-newpet -> When method = GET, it redirects to newpet.html script. If method is POST, the function requests all the information inserted in the form and then inserts a new line in the database with the use of an API with that information.
+## <a name='inst'></a>**Installation**
 
-showpet -> Shows a specific pet that you asked for. You can also add a history when method is POST and then it refreshes the same showpet.html
-deletehist -> Used to delete some history added to a pet. Then it redirects you to showpet function
-login -> Used to log in with your user.
-logout -> Logs out your user
-register -> Used to register a new user
-mypets -> shows all your pets, need to be loged in
+1. Clone this repository:
 
-### <a name='html'></a> HTML Description
+```
+bashCopy code
+git clone https://github.com/your-username/hm-dashboard.git
 
-#### layout.html
+```
 
-Base HTML script, the main feature is a navegation bar where you can login or register in case you are not logged in and you can view your pets or add a new pet or log out if you are logged in.
+1. Change into the project directory:
 
-#### index.html
+```
+bashCopy code
+cd hm-dashboard
 
-In the index there is a small description of the web app, where vets can learn what this app is for.
+```
 
-#### login.html
+1. Create a virtual environment and activate it:
 
-HTML script where you can log in to your account
+```
+bashCopy code
+python -m venv venv
+source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
 
-#### register.html
+```
 
-HTML script where you can register a new user. Consists of a form with trhee imputs for username, password and confirm password.
+1. Install the required libraries:
 
-#### mypets.html
+```
+Copy code
+pip install -r requirements.txt
 
-HTML script where using a for loop all your pets will be shown in a table showing you their name, lastname, age and specie. You can enter an view the pet history or delete the pet.
+```
 
-#### newpet.html
+1. Configure the **`config.yaml`** file with the appropriate authentication credentials, API keys, and other required configurations.
 
-HTML script where you can create a new pet. Using a form and several imputs you can create a new pet
+## <a name='us'></a>**Usage**
 
-#### showpet.html
+To launch the Streamlit app, execute the following command in your terminal:
 
-HTML script that shows the information of each pet you select. Here, using a for loop you can see all the information of the pet and also the history. You can add new history or delete previous history from it.
+```
+arduinoCopy code
+streamlit run app.py
 
-### <a name='howtorun'></a>How to setup and run
+```
 
-1. Clone the repository or download the code.
-2. Install the required packages: **`pip install -r requirements.txt`**
-3. Configure your MySQL database connection parameters in the **`connect()`** function of api.py.
-4. Run the API
-5. Run the application
+Streamlit will then provide a local URL (e.g., **`http://localhost:8501`**) that you can use to access the dashboard in your web browser.
 
-### <a name='howtouse'></a>How to use
+# <a name='api'></a>**Retail Data API**
 
-Once you are able to run the application, first you have to create an account.
-If you have the account already created just add a pet!
-Then you can ask the app to show you all your pets.
-When you ask the web app to show you a specific pet, it will show you that pet and their specific stories... if it doesn't have any, just add them and start using it!
-Have fun!
+This is a RESTful API built using Flask and Flask-Restx to serve retail data for a Streamlit application. The API provides access to data related to customers, articles, and transactions. It uses Google Cloud Platform's App Engine for hosting and Cloud SQL for the database.
 
-### <a name='routes'></a>Routes & API Endpoints
+## <a name='feat'></a>**Features**
 
-#### Routes
+- Retrieve customer data (all or by ID, age range)
+- Retrieve article data (all, distinct, or by ID)
+- Retrieve transaction data (all or by ID)
+- API key authentication for secured access
 
-- **`/`**: Index page.
-- **`/newpet`**: Add a new pet.
-- **`/login`**: User login.
-- **`/logout`**: User logout.
-- **`/register`**: User registration.
-- **`/mypets`**: List of user's pets.
-- **`/<int:pet_num>`**: View a specific pet and its history.
-- **`/deletehist/<int:histnum>`**: Delete a pet's history.
-- **`/deletepet/<int:pet_num>`**: Delete a pet.
+## <a name='setup'></a>**Setup**
 
-#### API Endpoints - USER
+1. Clone this repository.
+2. Install the required dependencies.
 
-- **`/api/ph/v1/user/<username>`**: Get user information by username.
-- **`/api/ph/v1/user/new`**: Create a new user.
+```
+bashCopy code
+pip install -r requirements.txt
 
-#### API Endpoints - PET
+```
 
-- **`/api/ph/v1/pet/create`**: Create a new pet.
-- **`/api/ph/v1/pet/<pet_num>`**: Get pet information by pet ID.
-- **`/api/ph/v1/pet/<pet_num>/history`**: Get pet history by pet ID.
-- **`/api/ph/v1/pet/create_history`**: Create a new pet history.
-- **`/api/ph/v1/pet/gpn/<histnum>`**: Get pet number from a history ID.
-- **`/api/ph/v1/pet/delete_history/<histnum>`**: Delete a pet history by history ID.
-- **`/api/ph/v1/pet/delete/<pet_num>`**: Delete a pet by pet ID.
+1. Set your database credentials and API key in the **`api.py`** file.
 
-### <a name='dbdesc'></a>Database Description
+```
+pythonCopy code
+user = "your_user"
+passw = "your_password"
+host = "your_host"
+database = "your_database"
+api_key = "your_api_key"
 
-For this project three databases were used. 
+```
 
-The tables are:
-#### users:
+1. Run the application.
 
-    This table is used to save the users information, username and password
+```
+bashCopy code
+python app.py
 
-    id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY
-    username TEXT,
-    hash TEXT
+```
 
-#### pets:
+## <a name='aend'></a>**API Endpoints**
 
-    Pets saves the name, lastname, age and specie of each pet. Also, its linked with each user by the pet_id number, which is created by the newpet function getting the user id from the user that has log on.
-    Each pet, has a pet_num to be able to identify each pet. This is a primary key and links each pet with each user.
+Base URL: **`/api/v1`**
 
-    pet_num INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    name TEXT,
-    lastname TEXT,
-    age INTEGER,
-    specie TEXT,
-    pet_id INTEGER
-    
-    
-#### history:
+### <a name='cust'></a>**Customers**
 
-    In history table, each pet medical hisotry is stored.
-    History saves the date the new entry is entered, the history itselve the pet number and pet id to be able to link it to each pet and each user and a number which states the history number.
-    The history number is then used in case you need to delete a history. By using a history number you can't delete a history you didn't wanted.
-    They can also delete pets and history of each pet.
-    
-    pet_id INTEGER NOT NULL,
-    pet_num INTEGER NOT NULL,
-    story TEXT,
-    date DATETIME DEFAULT NOW(),
-    histnum INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY
+- Get all customers: **`/api/v1/customers`**
+- Get specific customer by ID: **`/api/v1/customers/<id>`**
+- Get distinct ages of customers: **`/api/v1/ages`**
+- Get customers between specific ages: **`/api/v1/ages/<age1>/<age2>`**
+
+### <a name='articles'></a>**Articles**
+
+- Get all articles: **`/api/v1/articles`**
+- Get distinct articles: **`/api/v1/articles/distinct`**
+- Get specific article by ID: **`/api/v1/articles/<id>`**
+
+### <a name='trans'></a>**Transactions**
+
+- Get all transactions: **`/api/v1/transactions`**
+- Get specific transaction by ID: **`/api/v1/transactions/<id>`**
+
+## <a name='auth'></a>**Authentication**
+
+To access the API endpoints, you need to provide an API key in the request header as **`X-API-KEY`**. The API key is defined in the **`api.py`** file.
