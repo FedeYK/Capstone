@@ -10,6 +10,8 @@ import streamlit_authenticator as stauth
 import yaml
 from yaml.loader import SafeLoader
 import matplotlib.pyplot as plt
+import plotly.express as px
+
 
 
 # I want to check how much space does the data take
@@ -308,16 +310,25 @@ if authentication_status:
     if dochart:
         # Create a pie chart using Altair
         st.write("## Club Member Status")
-        club_member_counts = joined_prod_trans['club_member_status'].value_counts()
+        subscriptions = joined_prod_trans['club_member_status'].value_counts()
         chart_data = pd.DataFrame({
-            'count': club_member_counts.values,
-            'status': club_member_counts.index
+            'count': subscriptions.values,
+            'status': subscriptions.index
         })
-        chart = alt.Chart(chart_data).mark_arc().encode(
-            theta='count',
-            color='status'
-        )
-        st.altair_chart(chart, use_container_width=True)
+        fig = px.pie(chart_data, values='count', names='status')
+        st.plotly_chart(fig, use_container_width=True)
+
+
+        # club_member_counts = joined_prod_trans['club_member_status'].value_counts()
+        # chart_data = pd.DataFrame({
+        #     'count': club_member_counts.values,
+        #     'status': club_member_counts.index
+        # })
+        # chart = alt.Chart(chart_data).mark_arc().encode(
+        #     theta='count',
+        #     color='status'
+        # )
+        # st.altair_chart(chart, use_container_width=True)
     
         st.write("### Club Member Status in numbers")
         st.dataframe(chart_data)
@@ -330,12 +341,9 @@ if authentication_status:
             'count': subscriptions.values,
             'status': subscriptions.index
         })
-        chart = alt.Chart(chart_data).mark_arc().encode(
-            theta='count',
-            color='status'
-        )
-        st.altair_chart(chart, use_container_width=True)
-    
+        fig = px.pie(chart_data, values='count', names='status')
+        st.plotly_chart(fig, use_container_width=True)
+
         st.write("### Newsletter Subscription Status in numbers")
         st.dataframe(chart_data)
 
