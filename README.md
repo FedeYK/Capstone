@@ -41,8 +41,12 @@ The H&M Dashboard is a powerful Streamlit-based web application that provides an
 Before you begin, ensure you have met the following requirements:
 
 - Python 3.7 or later
-- Streamlit 1.3.0 or later
-- Additional required libraries (refer to the **`requirements.txt`** file for a complete list)
+- pandas
+- streamlit
+- SQLAlchemy version 1.4.40
+- PyMySQL
+- flask
+- flask-restx
 
 ## <a name='inst'></a>**Installation**
 
